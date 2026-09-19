@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<title>App Gianni – Palestra + Dieta Ultra</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+  body { font-family: system-ui, -apple-system, sans-serif; background:#0d0d0d; color:white; margin:0; }
+  header { padding: 20px; background: linear-gradient(135deg, #0f0f0f, #1a1a1a); color: #9cff6f; text-align:center; border-bottom: 2px solid #9cff6f; }
+  h1 { margin: 0; font-size: 22px; font-weight: 600; }
+  nav { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px; }
+  nav button { flex: 1 1 45%; padding: 12px; border:none; border-radius:8px; background:#1a1a1a; color:white; font-weight:600; border:1px solid #9cff6f; }
+  nav button:hover { background:#9cff6f; color:#0d0d0d; }
+  section { display: none; padding: 14px; }
+  section.active { display: block; }
+  .card { background: #111; border-radius: 10px; padding: 14px; margin-bottom:14px; border:1px solid #222; }
+  .card h3 { margin-top: 0; font-size: 18px; color:#9cff6f; }
+  label { display: block; font-size: 14px; margin-bottom: 4px; color:#cfcfcf; }
+  input, textarea { width: 100%; padding: 8px; margin-bottom: 10px; border-radius:6px; border:1px solid #333; background:#1a1a1a; color:white; }
+  ul { padding-left:18px; }
+  li { margin-bottom:4px; }
+  .small { font-size: 12px; color: #9cff6f; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>App Gianni – Palestra + Dieta Ultra</h1>
+  <div class="small">GreenTheory • V-Shape • Lifestyle</div>
+</header>
+
+<nav>
+  <button onclick="showSection('lunedi')">Lunedì</button>
+  <button onclick="showSection('mercoledi')">Mercoledì</button>
+  <button onclick="showSection('venerdi')">Venerdì</button>
+  <button onclick="showSection('spalle')">Spalle</button>
+  <button onclick="showSection('gambe')">Gambe</button>
+  <button onclick="showSection('carichi')">Carichi</button>
+  <button onclick="showSection('misure')">Misure</button>
+  <button onclick="showSection('dieta')">Dieta</button>
+  <button onclick="showSection('note')">Note</button>
+</nav>
+
+<!-- LUNEDÌ -->
+<section id="lunedi" class="active">
+  <div class="card">
+    <h3>Lunedì – Petto + Tricipiti</h3>
+
+    <label>Chest Press</label>
+    <input type="text" placeholder="4x10 – peso">
+
+    <label>Pectoral Machine</label>
+    <input type="text" placeholder="4x12 – peso">
+
+    <label>Tricipiti Pushdown</label>
+    <input type="text" placeholder="3x12 – peso">
+
+    <label>Dip Assist / Parallele</label>
+    <input type="text" placeholder="3x10 – peso">
+
+    <label>Note</label>
+    <input type="text" placeholder="Note extra">
+  </div>
+</section>
+
+<!-- MERCOLEDÌ -->
+<section id="mercoledi">
+  <div class="card">
+    <h3>Mercoledì – Schiena + Bicipiti</h3>
+
+    <label>Lat Machine</label>
+    <input type="text" placeholder="4x10 – peso">
+
+    <label>Rematore Manubrio / Bilanciere</label>
+    <input type="text" placeholder="4x10 – peso">
+
+    <label>Pull Down</label>
+    <input type="text" placeholder="3x12 – peso">
+
+    <label>Bicipiti Curl</label>
+    <input type="text" placeholder="3x12 – peso">
+
+    <label>Hammer Curl</label>
+    <input type="text" placeholder="3x10 – peso">
+
+    <label>Note</label>
+    <input type="text" placeholder="Note extra">
+  </div>
+</section>
+
+<!-- VENERDÌ -->
+<section id="venerdi">
+  <div class="card">
+    <h3>Venerdì – Core + Mobilità</h3>
+
+    <label>Crunch</label>
+    <input type="text" placeholder="4x20">
+
+    <label>Plank</label>
+    <input type="text" placeholder="3x1'">
+
+    <label>Russian Twist</label>
+    <input type="text" placeholder="3x20">
+
+    <label>Mobilità</label>
+    <input type="text" placeholder="Durata / Note">
+  </div>
+</section>
+
+<!-- SPALLE -->
+<section id="spalle">
+  <div class="card">
+    <h3>Spalle – Deltoidi completi</h3>
+
+    <label>Shoulder Press</label>
+    <input type="text" placeholder="4x10 – peso">
+
+    <label>Alzate Laterali</label>
+    <input type="text" placeholder="4x12 – peso">
+
+    <label>Alzate Posteriori</label>
+    <input type="text" placeholder="3x12 – peso">
+
+    <label>Military Press</label>
+    <input type="text" placeholder="3x8 – peso">
+
+    <label>Note</label>
+    <input type="text" placeholder="Note extra">
+  </div>
+</section>
+
+<!-- GAMBE -->
+<section id="gambe">
+  <div class="card">
+    <h3>Gambe – Quadricipiti + Glutei</h3>
+
+    <label>Leg Press</label>
+    <input type="text" placeholder="4x12 – peso">
+
+    <label>Affondi</label>
+    <input type="text" placeholder="3x10 – peso">
+
+    <label>Leg Extension</label>
+    <input type="text" placeholder="3x12 – peso">
+
+    <label>Glute Bridge</label>
+    <input type="text" placeholder="4x12 – peso">
+
+    <label>Note</label>
+    <input type="text" placeholder="Note extra">
+  </div>
+</section>
+
+<!-- CARICHI -->
+<section id="carichi">
+  <div class="card">
+    <h3>Carichi – Progressione</h3>
+    <textarea rows="10" placeholder="Registra qui i tuoi carichi settimana per settimana"></textarea>
+  </div>
+</section>
+
+<!-- MISURE -->
+<section id="misure">
+  <div class="card">
+    <h3>Misure corporee</h3>
+
+    <label>Petto (cm)</label>
+    <input type="number">
+
+    <label>Vita (cm)</label>
+    <input type="number">
+
+    <label>Braccia (cm)</label>
+    <input type="number">
+
+    <label>Gambe (cm)</label>
+    <input type="number">
+
+    <label>Peso (kg)</label>
+    <input type="number">
+  </div>
+</section>
+
+<!-- DIETA COMPLETA -->
+<section id="dieta">
+  <div class="card">
+    <h3>Dieta Ultra – Completa</h3>
+
+    <p><strong>COLAZIONE (tutti i giorni)</strong></p>
+    <ul>
+      <li>150–200 g Quark / Yogurt Greco 0%</li>
+      <li>20 g frutta secca</li>
+      <li>Caffè o tè</li>
+      <li>+ 10 g fondente 85% nei giorni ON</li>
+    </ul>
+
+    <p><strong>GIORNI ON – Lunedì & Mercoledì (Pesi)</strong></p>
+    <ul>
+      <li>Target: ~1.850 kcal</li>
+      <li>Pranzo: 90 g riso/pasta + tonno grande + verdure + 10 g olio EVO</li>
+      <li>Pre‑WO: banana + whey</li>
+      <li>Post‑WO: 3–5 g creatina</li>
+      <li>Cena: 3 uova / 180 g pollo + 300 g patate + verdure + 10 g olio EVO</li>
+      <li>Pre‑nanna: Magnesio</li>
+    </ul>
+
+    <p><strong>GIORNI OFF – Martedì, Giovedì, Sabato</strong></p>
+    <ul>
+      <li>Target: ~1.650 kcal</li>
+      <li>Pranzo: 250 g legumi + 150 g fiocchi di latte / 2 uova + verdure + 15 g olio EVO</li>
+      <li>Spuntino: whey + arachidi</li>
+      <li>Cena: sgombro / uova + verdura + 15 g olio EVO</li>
+      <li>Pre‑nanna: Magnesio</li>
+    </ul>
+
+    <p><strong>VENERDÌ – Core + Mobilità</strong></p>
+    <ul>
+      <li>Target: ~1.700 kcal</li>
+      <li>Pranzo: legumi + fiocchi di latte</li>
+      <li>Pre‑Mobility: whey + frutta secca</li>
+      <li>Cena: merluzzo / sgombro / carne bianca + verdura + 15 g olio EVO</li>
+      <li>Post‑corso: Magnesio</li>
+    </ul>
+
+    <p><strong>DOMENICA – Ricarica metabolica</strong></p>
+    <ul>
+      <li>Peso + misure a digiuno</li>
+      <li>Colazione standard</li>
+      <li>Pasto libero controllato</li>
+      <li>Secondo pasto: pollo/sgombro + verdura</li>
+    </ul>
+
+    <p><strong>Integratori</strong></p>
+    <ul>
+      <li>Whey: 1 scoop/die</li>
+      <li>Creatina: 3–5 g post‑WO</li>
+      <li>Omega‑3: 1–2 cps</li>
+      <li>Magnesio: 2 cps</li>
+      <li>Multivitaminico: 1 cps</li>
+    </ul>
+
+    <textarea rows="8" placeholder="Note sulla dieta, fame, energia, modifiche..."></textarea>
+  </div>
+</section>
+
+<!-- NOTE -->
+<section id="note">
+  <div class="card">
+    <h3>Note personali</h3>
+    <textarea rows="10" placeholder="Annotazioni, obiettivi, modifiche alla scheda..."></textarea>
+  </div>
+</section>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
