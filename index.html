@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>App Gianni – GreenTheory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body { background:#000; color:#fff; font-family:system-ui; margin:0; }
+  header { padding:20px; text-align:center; color:#9cff6f; border-bottom:2px solid #9cff6f; }
+  nav { display:flex; flex-wrap:wrap; gap:10px; padding:10px; }
+  nav button { flex:1 1 45%; padding:10px; background:#111; color:#fff; border:1px solid #9cff6f; border-radius:8px; }
+  section { display:none; padding:14px; }
+  section.active { display:block; }
+  .card { background:#111; padding:14px; border-radius:10px; margin-bottom:14px; }
+  label { margin-top:10px; display:block; }
+  input, textarea { width:100%; background:#1a1a1a; border:1px solid #333; border-radius:6px; padding:8px; color:#fff; margin-top:4px; }
+  h3 { color:#9cff6f; }
+  h4 { color:#9cff6f; margin-top:20px; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Programma GreenTheory – Gianni</h1>
+</header>
+
+<nav>
+  <button onclick="showSection('lunedi')">Lunedì</button>
+  <button onclick="showSection('mercoledi')">Mercoledì</button>
+  <button onclick="showSection('venerdi')">Venerdì</button>
+  <button onclick="showSection('misure')">Misure</button>
+  <button onclick="showSection('carichi')">Carichi</button>
+  <button onclick="showSection('note')">Note</button>
+
+  <button onclick="showSection('mese01')">Mese 01</button>
+  <button onclick="showSection('mese02')">Mese 02</button>
+  <button onclick="showSection('mese03')">Mese 03</button>
+  <button onclick="showSection('mese04')">Mese 04</button>
+  <button onclick="showSection('mese05')">Mese 05</button>
+  <button onclick="showSection('mese06')">Mese 06</button>
+  <button onclick="showSection('mese07')">Mese 07</button>
+  <button onclick="showSection('mese08')">Mese 08</button>
+  <button onclick="showSection('mese09')">Mese 09</button>
+  <button onclick="showSection('mese10')">Mese 10</button>
+  <button onclick="showSection('mese11')">Mese 11</button>
+  <button onclick="showSection('mese12')">Mese 12</button>
+</nav>
+
+<!-- LUNEDÌ -->
+<section id="lunedi" class="active">
+  <div class="card">
+    <h3>Lunedì – Petto + Tricipiti + Gambe</h3>
+
+    <label>Chest Press – Panatta Fenix</label><input type="text">
+    <label>Pectoral Machine – Panatta Monolith</label><input type="text">
+    <label>Tricipiti Pushdown – Panatta SEC</label><input type="text">
+    <label>Dip Assist – Panatta Monolith</label><input type="text">
+
+    <h4>Gambe</h4>
+    <label>Leg Press 45° – Panatta FreeWeight</label><input type="text">
+    <label>Leg Extension – Panatta Monolith</label><input type="text">
+  </div>
+</section>
+
+<!-- MERCOLEDÌ -->
+<section id="mercoledi">
+  <div class="card">
+    <h3>Mercoledì – Schiena + Bicipiti + Gambe</h3>
+
+    <label>Lat Machine – Panatta Fenix</label><input type="text">
+    <label>Rowing Machine – Panatta FreeWeight</label><input type="text">
+    <label>Lat Pulldown – Panatta Fenix</label><input type="text">
+    <label>Arm Curl Machine – Panatta Monolith</label><input type="text">
+
+    <h4>Gambe</h4>
+    <label>Affondi – Panatta SEC</label><input type="text">
+    <label>Gluteus Machine – Panatta FreeWeight</label><input type="text">
+  </div>
+</section>
+
+<!-- VENERDÌ -->
+<section id="venerdi">
+  <div class="card">
+    <h3>Venerdì – Pilates</h3>
+    <label>Esercizio 1</label><input type="text">
+    <label>Esercizio 2</label><input type="text">
+    <label>Esercizio 3</label><input type="text">
+    <label>Note</label><textarea rows="3"></textarea>
+  </div>
+</section>
+
+<!-- MISURE -->
+<section id="misure">
+  <div class="card">
+    <h3>Misure</h3>
+    <label>Petto</label><input type="number">
+    <label>Vita</label><input type="number">
+    <label>Addome</label><input type="number">
+    <label>Glutei</label><input type="number">
+    <label>Bicipiti</label><input type="number">
+    <label>Coscia</label><input type="number">
+    <label>Peso</label><input type="number">
+  </div>
+</section>
+
+<!-- CARICHI -->
+<section id="carichi">
+  <div class="card">
+    <h3>Carichi</h3>
+    <textarea rows="10"></textarea>
+  </div>
+</section>
+
+<!-- NOTE -->
+<section id="note">
+  <div class="card">
+    <h3>Note generali</h3>
+    <textarea rows="10"></textarea>
+  </div>
+</section>
+
+<!-- TEMPLATE MESE -->
+<script>
+function mese(id, titolo) {
+  return `
+<section id="${id}">
+  <div class="card">
+    <h3>${titolo}</h3>
+
+    <h4>Progressi del fisico</h4>
+    <label>Petto</label><input type="number">
+    <label>Vita</label><input type="number">
+    <label>Addome</label><input type="number">
+    <label>Glutei</label><input type="number">
+    <label>Bicipiti</label><input type="number">
+    <label>Coscia</label><input type="number">
+    <label>Peso</label><input type="number">
+
+    <h4>Progressi dei pesi</h4>
+    <label>Chest Press</label><input type="number">
+    <label>Pectoral Machine</label><input type="number">
+    <label>Tricipiti Pushdown</label><input type="number">
+    <label>Dip Assist</label><input type="number">
+    <label>Leg Press</label><input type="number">
+    <label>Leg Extension</label><input type="number">
+    <label>Lat Machine</label><input type="number">
+    <label>Rowing</label><input type="number">
+    <label>Pulldown</label><input type="number">
+    <label>Affondi</label><input type="number">
+    <label>Gluteus Machine</label><input type="number">
+
+    <h4>Foto</h4><input type="text">
+    <h4>Stato forma</h4><textarea rows="4"></textarea>
+    <h4>Obiettivi</h4><textarea rows="4"></textarea>
+  </div>
+</section>
+`;
+}
+
+document.body.insertAdjacentHTML("beforeend", mese("mese01","Mese 01"));
+document.body.insertAdjacentHTML("beforeend", mese("mese02","Mese 02"));
+document.body.insertAdjacentHTML("beforeend", mese("mese03","Mese 03"));
+document.body.insertAdjacentHTML("beforeend", mese("mese04","Mese 04"));
+document.body.insertAdjacentHTML("beforeend", mese("mese05","Mese 05"));
+document.body.insertAdjacentHTML("beforeend", mese("mese06","Mese 06"));
+document.body.insertAdjacentHTML("beforeend", mese("mese07","Mese 07"));
+document.body.insertAdjacentHTML("beforeend", mese("mese08","Mese 08"));
+document.body.insertAdjacentHTML("beforeend", mese("mese09","Mese 09"));
+document.body.insertAdjacentHTML("beforeend", mese("mese10","Mese 10"));
+document.body.insertAdjacentHTML("beforeend", mese("mese11","Mese 11"));
+document.body.insertAdjacentHTML("beforeend", mese("mese12","Mese 12"));
+
+function showSection(id) {
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
