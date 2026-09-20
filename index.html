@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<title>App Gianni – GreenTheory 12 Mesi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+  body { font-family: system-ui, -apple-system, sans-serif; background:#0d0d0d; color:white; margin:0; }
+  header { padding: 20px; background: linear-gradient(135deg, #0f0f0f, #1a1a1a); color: #9cff6f; text-align:center; border-bottom: 2px solid #9cff6f; }
+  h1 { margin: 0; font-size: 22px; font-weight: 600; }
+  nav { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px; }
+  nav button { flex: 1 1 45%; padding: 10px; border:none; border-radius:8px; background:#1a1a1a; color:white; font-weight:600; border:1px solid #9cff6f; font-size:13px; }
+  nav button:hover { background:#9cff6f; color:#0d0d0d; }
+  section { display: none; padding: 14px; }
+  section.active { display: block; }
+  .card { background: #111; border-radius: 10px; padding: 14px; margin-bottom:14px; border:1px solid #222; }
+  .card h3 { margin-top: 0; font-size: 18px; color:#9cff6f; }
+  label { display: block; font-size: 14px; margin-bottom: 4px; color:#cfcfcf; }
+  input, textarea { width: 100%; padding: 8px; margin-bottom: 10px; border-radius:6px; border:1px solid #333; background:#1a1a1a; color:white; font-size:13px; }
+  ul { padding-left:18px; }
+  li { margin-bottom:4px; font-size:13px; }
+  .small { font-size: 12px; color: #9cff6f; }
+  .exercise-row { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .exercise-row img { width:90px; border-radius:8px; margin-left:auto; }
+  .exercise-name { font-size:14px; font-weight:600; }
+  .month-grid { display:grid; grid-template-columns:1fr; gap:10px; }
+  h4 { margin:8px 0 4px; font-size:14px; color:#9cff6f; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Programma GreenTheory – Gianni</h1>
+  <div class="small">Lunedì & Mercoledì Palestra • Venerdì Pilates • 12 mesi di progressi</div>
+</header>
+
+<nav>
+  <button onclick="showSection('lunedi')">Lunedì</button>
+  <button onclick="showSection('mercoledi')">Mercoledì</button>
+  <button onclick="showSection('venerdi')">Venerdì</button>
+  <button onclick="showSection('misure')">Misure iniziali</button>
+  <button onclick="showSection('dieta')">Dieta</button>
+  <button onclick="showSection('carichi')">Carichi</button>
+  <button onclick="showSection('note')">Note</button>
+
+  <button onclick="showSection('mese01')">Mese 01</button>
+  <button onclick="showSection('mese02')">Mese 02</button>
+  <button onclick="showSection('mese03')">Mese 03</button>
+  <button onclick="showSection('mese04')">Mese 04</button>
+  <button onclick="showSection('mese05')">Mese 05</button>
+  <button onclick="showSection('mese06')">Mese 06</button>
+  <button onclick="showSection('mese07')">Mese 07</button>
+  <button onclick="showSection('mese08')">Mese 08</button>
+  <button onclick="showSection('mese09')">Mese 09</button>
+  <button onclick="showSection('mese10')">Mese 10</button>
+  <button onclick="showSection('mese11')">Mese 11</button>
+  <button onclick="showSection('mese12')">Mese 12</button>
+</nav>
+
+<!-- LUNEDÌ -->
+<section id="lunedi" class="active">
+  <div class="card">
+    <h3>Lunedì – Petto + Tricipiti + Gambe (Parte 1)</h3>
+
+    <div class="exercise-row">
+      <div class="exercise-name">Chest Press – Panatta Fenix</div>
+      <img src="https://via.placeholder.com/90x90?text=Chest+Press" alt="Chest Press Panatta">
+    </div>
+    <input type="text" placeholder="4x10 – peso">
+
+    <div class="exercise-row">
+      <div class="exercise-name">Pectoral Machine – Panatta Monolith</div>
+      <img src="https://via.placeholder.com/90x90?text=Pectoral" alt="Pectoral Machine Panatta">
+    </div>
+    <input type="text" placeholder="4x12 – peso">
+
+    <div class="exercise-row">
+      <div class="exercise-name">Tricipiti Pushdown – Panatta SEC Cable</div>
+      <img src="https://via.placeholder.com/90x90?text=Tricipiti" alt="Tricipiti Pushdown Panatta">
+    </div>
+    <input type="text" placeholder="3x12 – peso">
+
+    <div class="exercise-row">
+      <div class="exercise-name">Dip Assist – Panatta Monolith</div>
+      <img src="https://via.placeholder.com/90x90?text=Dip" alt="Dip Assist Panatta">
+    </div>
+    <input type="text" placeholder="3x10 – peso">
+
+    <h3 style="color:#9cff6f;">Gambe – Parte 1</h3>
+
+    <div class="exercise-row">
+      <div class="exercise-name">Leg Press 45° – Panatta FreeWeight</div>
+      <img src="https://via.placeholder.com/90x90?text=Leg+Press" alt="Leg Press Panatta">
+    </div>
+    <input type="text" placeholder="4x12 – peso">
+
+    <div class="exercise-row">
+      <div class="exercise-name">Leg Extension – Panatta Monolith</div>
+      <img src="https://via.placeholder.com/90x90?text=Leg+Ext" alt="Leg Extension Panatta">
+    </div>
+    <input type="text" placeholder="3x12 – peso">
+
+    <label>Note Lunedì</label>
+    <textarea rows="3" placeholder="Note extra del giorno"></textarea>
+  </div>
+</section>
+
+<!-- MERCOLEDÌ -->
+<section id="mercoledi">
+  <div class="card">
+    <h3>Mercoledì – Schiena + Bicipiti + Gambe (Parte 2)</h3>
+
+    <div class="exercise-row">
+      <div class="exercise-name">Lat Machine High Row – Panatta Fenix</div>
+      <img src="https://via.placeholder.com/90x90?text=Lat+Machine" alt="Lat Machine Panatta">
+    </div>
+    <input type="text" placeholder="4x10 – peso">
+
+    <div class="exercise-row">
+      <div class="exercise-name">Rowing Machine – Panatta FreeWeight</div>
+      <img src="https://via.placeholder.com/90x90?text=Row" alt="Rowing Panatta">
+    </div>
+    <input type="text" placeholder="4x10 – peso">
+
+    <div class="exercise-row">
+      <div class="exercise-name">Lat Pulldown – Panatta Fenix</div>
+      <img src="https://via.placeholder.com/90x90?text=Pulldown" alt="Pulldown Panatta">
+    </div>
+    <input type="text" placeholder="3x12 – peso">
+
+    <div class="exercise-row">
+      <div class="exercise-name">Arm Curl Machine – Panatta Monolith</div>
+      <img src="https://via.placeholder.com/90x90?text=Curl" alt="Bicipiti Curl Panatta">
+    </div>
+    <input type="text" placeholder="3x12 – peso">
+
+    <h3 style="color:#9cff6f;">Gambe – Parte 2</h3>
+
+    <div class="exercise-row">
+      <div class="exercise-name">Affondi – Panatta SEC Multi Station</div>
+      <img src="https://via.placeholder.com/90x90?text=Affondi" alt="Affondi Panatta">
+    </div>
+    <input type="text" placeholder="3x10 – peso">
+
+    <div class="exercise-row">
+      <div class="exercise-name">Gluteus Machine – Panatta FreeWeight</div>
+      <img src="https://via.placeholder.com/90x90?text=Gluteus" alt="Glute Machine Panatta">
+    </div>
+    <input type="text" placeholder="4x12 – peso">
+
+    <label>Note Mercoledì</label>
+    <textarea rows="3" placeholder="Note extra del giorno"></textarea>
+  </div>
+</section>
+
+<!-- VENERDÌ -->
+<section id="venerdi">
+  <div class="card">
+    <h3>Venerdì – Pilates / Core</h3>
+
+    <label>Esercizio Pilates 1</label>
+    <input type="text" placeholder="Durata / serie">
+
+    <label>Esercizio Pilates 2</label>
+    <input type="text" placeholder="Durata / serie">
+
+    <label>Esercizio Pilates 3</label>
+    <input type="text" placeholder="Durata / serie">
+
+    <label>Stretching / Mobilità</label>
+    <input type="text" placeholder="Durata / note">
+
+    <label>Note Venerdì</label>
+    <textarea rows="3" placeholder="Sensazioni, fatica, mobilità..."></textarea>
+  </div>
+</section>
+
+<!-- MISURE INIZIALI -->
+<section id="misure">
+  <div class="card">
+    <h3>Misure iniziali – Settembre 2026</h3>
+
+    <label>Deltoidi (cm)</label>
+    <input type="number" value="42">
+
+    <label>Torace (cm)</label>
+    <input type="number" value="101">
+
+    <label>Vita stretta (cm)</label>
+    <input type="number" value="94">
+
+    <label>Addome sopra ombelico (cm)</label>
+    <input type="number" value="106">
+
+    <label>Glutei (cm)</label>
+    <input type="number" value="100">
+
+    <label>Bicipiti Dx/Sx (cm)</label>
+    <input type="text" value="31 / 31">
+
+    <label>Coscia Dx/Sx (cm)</label>
+    <input type="text" value="45 / 45">
+
+    <label>Peso (kg)</label>
+    <input type="number" value="84">
+
+    <label>Note iniziali</label>
+    <textarea rows="4" placeholder="Stato forma, obiettivi, criticità (cervicale, ecc.)"></textarea>
+  </div>
+</section>
+
+<!-- DIETA -->
+<section id="dieta">
+  <div class="card">
+    <h3>Dieta Carb-Cycling – GreenTheory</h3>
+
+    <p><strong>Colazione (tutti i giorni)</strong></p>
+    <ul>
+      <li>150–200 g Quark / Yogurt Greco 0%</li>
+      <li>20 g frutta secca</li>
+      <li>Caffè o tè</li>
+      <li>+ 10 g fondente nei giorni ON</li>
+    </ul>
+
+    <p><strong>Giorni ON (Lunedì & Mercoledì) – 1.850 kcal</strong></p>
+    <ul>
+      <li>Pranzo: 90 g carbo + tonno + verdure + 10 g olio EVO</li>
+      <li>Pre-WO: banana + whey</li>
+      <li>Post-WO: 3–5 g creatina</li>
+      <li>Cena: 3 uova / 180 g pollo + patate + verdure</li>
+    </ul>
+
+    <p><strong>Giorni OFF – 1.650 kcal</strong></p>
+    <ul>
+      <li>Pranzo: legumi + fiocchi di latte</li>
+      <li>Spuntino: whey + arachidi</li>
+      <li>Cena: sgombro / uova + verdura</li>
+    </ul>
+
+    <p><strong>Venerdì – Pilates – 1.700 kcal</strong></p>
+    <ul>
+      <li>Pre-Pilates: whey + frutta secca</li>
+      <li>Cena: merluzzo / sgombro + verdura</li>
+    </ul>
+
+    <label>Note dieta</label>
+    <textarea rows="4" placeholder="Adesione, fame, energia, eventuali sgarri..."></textarea>
+  </div>
+</section>
+
+<!-- CARICHI -->
+<section id="carichi">
+  <div class="card">
+    <h3>Carichi – Progressione generale</h3>
+    <textarea rows="10" placeholder="Registra qui i carichi principali (Chest Press, Lat Machine, Leg Press, ecc.) mese per mese."></textarea>
+  </div>
+</section>
+
+<!-- NOTE GENERALI -->
+<section id="note">
+  <div class="card">
+    <h3>Note generali</h3>
+    <textarea rows="10" placeholder="Obiettivi, modifiche, sensazioni, progressi, problemi cervicale, energia, sonno..."></textarea>
+  </div>
+</section>
+
+<!-- SEZIONI MENSILI -->
+<section id="mese01">
+  <div class="card">
+    <h3>Mese 01 – Fase 1 Ricomposizione</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 01">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 02</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese02">
+  <div class="card">
+    <h3>Mese 02 – Fase 1 Ricomposizione</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 02">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 03</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese03">
+  <div class="card">
+    <h3>Mese 03 – Fase 1 Ricomposizione</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 03">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 04</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese04">
+  <div class="card">
+    <h3>Mese 04 – Fase 2 Tono</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 04">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 05</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese05">
+  <div class="card">
+    <h3>Mese 05 – Fase 2 Tono</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 05">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 06</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese06">
+  <div class="card">
+    <h3>Mese 06 – Fase 2 Tono</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 06">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 07</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese07">
+  <div class="card">
+    <h3>Mese 07 – Fase 3 Definizione</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 07">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 08</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese08">
+  <div class="card">
+    <h3>Mese 08 – Fase 3 Definizione</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 08">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 09</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese09">
+  <div class="card">
+    <h3>Mese 09 – Fase 3 Definizione</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 09">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 10</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese10">
+  <div class="card">
+    <h3>Mese 10 – Fase 4 Mantenimento</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 10">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 11</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese11">
+  <div class="card">
+    <h3>Mese 11 – Fase 4 Mantenimento</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 11">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Obiettivi Mese 12</h4>
+    <textarea rows="4" placeholder="Cosa migliorare, cosa mantenere, cosa cambiare."></textarea>
+  </div>
+</section>
+
+<section id="mese12">
+  <div class="card">
+    <h3>Mese 12 – Fase 4 Mantenimento</h3>
+    <div class="month-grid">
+      <div>
+        <h4>Progressi del fisico</h4>
+        <ul>
+          <li>Petto: … cm</li>
+          <li>Vita: … cm</li>
+          <li>Addome: … cm</li>
+          <li>Glutei: … cm</li>
+          <li>Bicipiti: … cm</li>
+          <li>Coscia: … cm</li>
+          <li>Peso: … kg</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Progressi dei pesi</h4>
+        <ul>
+          <li>Chest Press: … kg</li>
+          <li>Lat Machine: … kg</li>
+          <li>Leg Press: … kg</li>
+          <li>Rowing: … kg</li>
+          <li>Pull Down: … kg</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Foto del mese (link)</h4>
+    <input type="text" placeholder="URL foto Mese 12">
+
+    <h4>Stato forma</h4>
+    <textarea rows="4" placeholder="Energia, recupero, estetica, sensazioni..."></textarea>
+
+    <h4>Bilancio finale 12 mesi</h4>
+    <textarea rows="4" placeholder="Risultato finale, cosa hai ottenuto, cosa vuoi mantenere o cambiare."></textarea>
+  </div>
+</section>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
