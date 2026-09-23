@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Gianni App Ultra</title><style>
+:root{--bg:#0b0c10;--bg2:#1f2833;--accent:#45a29e;--text:#c5c6c7;--white:#fff;--danger:#ff4b4b;}
+body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);}
+.app{max-width:960px;margin:0 auto;padding:16px;}
+h1{text-align:center;color:var(--white);margin:0 0 6px;}
+.subtitle{text-align:center;color:var(--accent);margin-bottom:16px;font-size:.9rem;}
+.nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px;}
+.nav button{border:none;padding:8px 14px;border-radius:999px;background:var(--bg2);color:var(--white);cursor:pointer;font-size:.85rem;}
+.nav button.active{background:var(--accent);}
+.section{display:none;background:var(--bg2);border-radius:12px;padding:12px;}
+.section.active{display:block;}
+h2{color:var(--white);margin:0 0 8px;font-size:1.1rem;}
+.pill{display:inline-block;padding:4px 10px;border-radius:999px;background:#11151c;color:var(--accent);font-size:.75rem;margin-bottom:8px;}
+.card{background:#11151c;border-radius:10px;padding:10px;margin-bottom:10px;}
+.card-title{color:var(--white);font-weight:600;margin-bottom:4px;}
+.card-sub{color:#9fa4aa;font-size:.8rem;margin-bottom:6px;}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;}
+label{font-size:.8rem;margin-bottom:2px;display:block;}
+textarea,input{width:100%;border-radius:6px;border:1px solid #3b4a5a;background:#0b0c10;color:var(--text);padding:6px 8px;font-size:.8rem;}
+textarea{min-height:70px;}
+.accordion{border:1px solid #2b3644;border-radius:10px;margin-bottom:10px;}
+.accordion-header{padding:8px 10px;background:#11151c;color:var(--white);cursor:pointer;display:flex;justify-content:space-between;}
+.accordion-body{display:none;padding:8px 10px;background:#0b0c10;}
+.accordion-body.open{display:block;}
+.exercise{background:#11151c;border:1px solid #2b3644;border-radius:8px;padding:8px;margin-bottom:6px;}
+.exercise-name{color:var(--white);font-size:.85rem;margin-bottom:6px;}
+.slots{display:flex;flex-wrap:wrap;gap:6px;}
+.slot{flex:1 1 70px;}
+.slot label{font-size:.7rem;color:#9fa4aa;}
+.slot input{padding:4px 6px;font-size:.75rem;}
+.exercise-note{color:#9fa4aa;font-size:.8rem;margin-bottom:8px;}
+@media(max-width:480px){.nav button{flex:1 1 45%;}}
+</style></head><body>
+<div class="app">
+<h1>Gianni App Ultra</h1>
+<div class="subtitle">Dieta ON/OFF • Palestra Panatta • Note</div>
+
+<div class="nav">
+<button class="active" data-target="home">Home</button>
+<button data-target="dieta">Dieta</button>
+<button data-target="palestra">Palestra</button>
+<button data-target="note">Note</button>
+</div>
+
+<div id="home" class="section active">
+<h2>Home</h2><span class="pill">Benvenuto Gianni</span>
+<div class="card"><div class="card-title">La tua app personale</div>
+<div class="card-sub">Dieta ON/OFF completa, scheda Panatta 3 giorni, note. Nessuna foto, nessun mese.</div></div>
+</div>
+
+<div id="dieta" class="section">
+<h2>Dieta ON/OFF</h2><span class="pill">Struttura completa</span>
+<div class="card"><div class="card-title">Giorni ON (Lunedì–Venerdì)</div>
+<div class="grid-2">
+<div><label>Colazione</label><textarea></textarea></div>
+<div><label>Spuntino mattina</label><textarea></textarea></div>
+<div><label>Pranzo</label><textarea></textarea></div>
+<div><label>Spuntino pomeriggio</label><textarea></textarea></div>
+<div><label>Cena</label><textarea></textarea></div>
+<div><label>Pre-nanna</label><textarea></textarea></div>
+</div></div>
+<div class="card"><div class="card-title">Weekend OFF</div>
+<label>Note weekend</label><textarea></textarea></div>
+</div>
+
+<div id="palestra" class="section">
+<h2>Scheda Palestra Panatta</h2><span class="pill">Lunedì • Mercoledì • Venerdì</span>
+
+<div class="accordion"><div class="accordion-header" data-target="lunedi">🔴 Lunedì<span>▼</span></div>
+<div class="accordion-body" id="lunedi">
+<div class="exercise-note"><span class="danger">Cervicale:</span> capo appoggiato, scapole chiuse.</div>
+<div class="exercise"><div class="exercise-name">Chest Press Panatta — 4×10–12 — 90s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div><div class="slot"><label>S4</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Shoulder Press — 3×12 — 75s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Leg Extension — 4×12–15 — 60s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div><div class="slot"><label>S4</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Pushdown Tricipiti — 3×12–15 — 60s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Vacuum Addominale — 4×20s — 45s</div></div>
+</div></div>
+
+<div class="accordion"><div class="accordion-header" data-target="mercoledi">🔵 Mercoledì<span>▼</span></div>
+<div class="accordion-body" id="mercoledi">
+<div class="exercise-note"><span class="danger">Cervicale:</span> trazione al petto, busto 90°.</div>
+<div class="exercise"><div class="exercise-name">Lat Machine Supina — 4×10–12 — 90s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div><div class="slot"><label>S4</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Pulley Basso — 3×12 — 75s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Seated Leg Curl — 3×12 — 60s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Hip Thrust — 3×10–12 — 75s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Curl Cavi Bassi — 3×12–15 — 60s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div></div></div>
+</div></div>
+
+<div class="accordion"><div class="accordion-header" data-target="venerdi">🟣 Venerdì<span>▼</span></div>
+<div class="accordion-body" id="venerdi">
+<div class="exercise-note"><span class="danger">Cervicale:</span> deltoidi posteriori antalgici.</div>
+<div class="exercise"><div class="exercise-name">Pec Deck Posteriori — 4×12–15 — 60s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div><div class="slot"><label>S4</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Panca Inclinata — 3×10–12 — 90s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Lat Machine Larga — 3×12 — 75s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Alzate Laterali Seduto — 3×12–15 — 60s</div><div class="slots"><div class="slot"><label>S1</label><input></div><div class="slot"><label>S2</label><input></div><div class="slot"><label>S3</label><input></div></div></div>
+<div class="exercise"><div class="exercise-name">Vacuum + Mobility — 4×20s — 45s</div></div>
+</div></div>
+
+</div>
+
+<div id="note" class="section">
+<h2>Note</h2><span class="pill">Appunti personali</span>
+<div class="card"><div class="card-title">Note allenamento</div><textarea></textarea></div>
+<div class="card"><div class="card-title">Note generali</div><textarea></textarea></div>
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll('.nav button').forEach(b=>{b.onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(b.dataset.target).classList.add('active');};});
+document.querySelectorAll('.accordion-header').forEach(h=>{h.onclick=()=>{let t=h.dataset.target;document.getElementById(t).classList.toggle('open');};});
+</script>
+
+</body></html>
