@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Gianni App Ultra — Dieta & Palestra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0c10;
+      color: #e5e5e5;
+    }
+    .app {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 1.6rem;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #9fa8da;
+      margin-bottom: 18px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .nav button {
+      border: none;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      background: #1f2833;
+      color: #e5e5e5;
+      border: 1px solid #45a29e;
+    }
+    .nav button.active {
+      background: #45a29e;
+      color: #0b0c10;
+      font-weight: 600;
+    }
+
+    .card {
+      background: #1f2833;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      margin-bottom: 16px;
+      border: 1px solid #303c54;
+    }
+    h2 {
+      color: #66fcf1;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    h3 {
+      color: #c5c6c7;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+    ul {
+      padding-left: 18px;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+    .badge-on {
+      background-color: #c6f6d5;
+      color: #22543d;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+    .badge-off {
+      background-color: #feebc8;
+      color: #744210;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+    .badge-sun {
+      background-color: #e9d8fd;
+      color: #44337a;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+    .alert {
+      font-weight: bold;
+      color: #f56565;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      background: #151a24;
+    }
+    th, td {
+      border: 1px solid #2d3748;
+      padding: 6px;
+      text-align: center;
+    }
+    th {
+      background-color: #1f2833;
+      color: #e5e5e5;
+    }
+
+    .accordion {
+      margin-bottom: 12px;
+      border: 1px solid #303c54;
+      background: #1f2833;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .accordion-header {
+      padding: 10px 12px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #151a24;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+    }
+    .accordion-header span.icon {
+      font-size: 0.9rem;
+      color: #c5c6c7;
+    }
+    .accordion-body {
+      display: none;
+      padding: 10px 12px 12px;
+      background: #1f2833;
+    }
+    .exercise {
+      margin-bottom: 14px;
+    }
+    .exercise-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+    .exercise-note {
+      font-size: 0.8rem;
+      color: #c5c6c7;
+      margin-bottom: 6px;
+    }
+    .slots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .slot {
+      flex: 1 1 22%;
+      display: flex;
+      flex-direction: column;
+    }
+    .slot label {
+      font-size: 0.75rem;
+      margin-bottom: 2px;
+    }
+    .slot input {
+      background: #0b0c10;
+      border: 1px solid #3b4a63;
+      color: #e5e5e5;
+      padding: 4px;
+      font-size: 0.8rem;
+      border-radius: 4px;
+    }
+
+    .month-block {
+      border-radius: 10px;
+      border: 1px solid #303c54;
+      background: #1f2833;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: #151a24;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 6px;
+      border: 1px solid #3b4a63;
+    }
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg,#45a29e,#66fcf1);
+    }
+    .month-inputs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .month-input {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+    }
+    .month-input label {
+      font-size: 0.8rem;
+      margin-bottom: 2px;
+    }
+    .month-input input {
+      background: #0b0c10;
+      border: 1px solid #3b4a63;
+      color: #e5e5e5;
+      padding: 4px;
+      font-size: 0.8rem;
+      border-radius: 4px;
+    }
+
+    .photos-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .photo-slot {
+      flex: 1 1 30%;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8rem;
+    }
+    .photo-slot input[type="file"] {
+      font-size: 0.75rem;
+      color: #e5e5e5;
+    }
+    .photo-preview {
+      margin-top: 4px;
+      width: 100%;
+      max-height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #3b4a63;
+    }
+    .notes-area {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+    .notes-area textarea {
+      background: #0b0c10;
+      border: 1px solid #3b4a63;
+      color: #e5e5e5;
+      padding: 6px;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      min-height: 60px;
+      resize: vertical;
+    }
+
+    @media (max-width: 600px) {
+      .slot { flex: 1 1 45%; }
+      .month-input { flex: 1 1 100%; }
+      .photo-slot { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>Gianni App Ultra</h1>
+    <div class="subtitle">Programma Trasformazione V-Shape — Dieta & Palestra</div>
+
+    <div class="nav">
+      <button class="active" data-section="dieta">Dieta & Integratori</button>
+      <button data-section="palestra">Scheda Palestra</button>
+      <button data-section="registro">Registro Misure</button>
+      <button data-section="progressi">Progressi Mensili PRO</button>
+    </div>
+
+    <!-- DIETA -->
+    <div id="section-dieta">
+      <div class="card">
+        <h2>PROGRAMMA TRASFORMAZIONE V-SHAPE</h2>
+        <p style="font-size:0.9rem;">
+          <strong>Atleta:</strong> Giovanni Olita |
+          <strong>Target:</strong> Ricomposizione Corporea (9-10 mesi)
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>💊 Stack Integratori & Linee Guida</h2>
+        <ul>
+          <li><strong>Proteine Whey:</strong> 1 scoop (30g) tutti i giorni nello spuntino.</li>
+          <li><strong>Creatina Monoidrata:</strong> 3g - 5g subito post-workout nei <span class="badge-on">GIORNI ON</span>.</li>
+          <li><strong>Magnesio Bisglicinato:</strong> 2 capsule ogni sera prima di dormire (decompressione cervicale).</li>
+          <li><strong>Omega-3:</strong> 2 capsule al giorno ai pasti principali.</li>
+          <li><strong>Multivitaminico:</strong> 1 capsula al mattino a colazione.</li>
+          <li><strong>Idratazione:</strong> Minimo 2.5 - 3 litri d'acqua al giorno.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🍳 Colazione Fissa Economica (Tutti i giorni)</h2>
+        <p><em>Target: ~220 kcal | 22g PRO | 10g FAT | 6g CHO</em></p>
+        <ul>
+          <li>150g - 200g Quark magro oppure Yogurt Greco 0%.</li>
+          <li>20g Arachidi tostate non salate o noci.</li>
+          <li>1-2 tazzine di Caffè o Tè senza zucchero.</li>
+          <li><em>Opzionale nei giorni ON: 10g cioccolato fondente 85%.</em></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🏋️ <span class="badge-on">GIORNI ON</span> (Lunedì, Mercoledì, Venerdì — Pesi)</h2>
+        <p><em>Target: ~1.850 kcal | 155g-170g PRO | 140g-180g CHO | 45g FAT</em></p>
+
+        <h3>Pranzo (High Carb)</h3>
+        <ul>
+          <li>90g Riso o Pasta integrale.</li>
+          <li>120g-150g Tonno al naturale oppure 100g Sgombro.</li>
+          <li>Zucchine, finocchi o insalata a volontà.</li>
+          <li>10g Olio EVO (1 cucchiaio).</li>
+        </ul>
+
+        <h3>Spuntino / Pre-Workout</h3>
+        <ul>
+          <li>1 Banana.</li>
+          <li>1 scoop Proteine Whey in acqua (oppure 2 uova sode).</li>
+          <li><strong>Post-Workout:</strong> 3g-5g Creatina Monoidrata in acqua.</li>
+        </ul>
+
+        <h3>Cena (High Carb)</h3>
+        <ul>
+          <li>220g - 250g Pollo / Tacchino (oppure 3 uova intere).</li>
+          <li>150g - 300g Patate al vapore/forno.</li>
+          <li>Verdure a foglia verde a volontà.</li>
+          <li>10g Olio EVO (1 cucchiaio).</li>
+        </ul>
+
+        <h3>Pre-Nanna</h3>
+        <ul>
+          <li>2 capsule Magnesio Bisglicinato.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🧘 <span class="badge-off">GIORNI OFF</span> (Martedì, Giovedì, Sabato — Low Carb)</h2>
+        <p><em>Target: ~1.500-1.650 kcal | 145g-160g PRO | 30g-60g CHO | 50g-55g FAT</em></p>
+
+        <h3>Pranzo (Low Carb)</h3>
+        <ul>
+          <li>250g Legumi cotti in scatola (Ceci, Fagioli o Lenticchie).</li>
+          <li>200g Fiocchi di latte magri (oppure 2 uova sode).</li>
+          <li>Finocchi, cavolo o insalata a volontà.</li>
+          <li>15g Olio EVO (1.5 cucchiai).</li>
+        </ul>
+
+        <h3>Spuntino</h3>
+        <ul>
+          <li>1 scoop Proteine Whey in acqua fredda.</li>
+          <li>10g - 15g Arachidi tostate o frutta secca.</li>
+        </ul>
+
+        <h3>Cena (No Carb)</h3>
+        <ul>
+          <li>150g - 200g Sgombro al naturale (oppure 3 uova intere / uova + albume).</li>
+          <li>Verdura a foglia verde a volontà (spinaci, bietole, zucchine).</li>
+          <li>15g Olio EVO (1.5 cucchiai).</li>
+          <li><span class="alert">No pane, no pasta, no patate.</span></li>
+        </ul>
+
+        <h3>Pre-Nanna</h3>
+        <ul>
+          <li>2 capsule Magnesio Bisglicinato.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🔄 <span class="badge-sun">DOMENICA</span> (Ricarica Metabolica & Controllo)</h2>
+        <ul>
+          <li><strong>Mattina a digiuno:</strong> Rilevazione peso e misurazione centimetri.</li>
+          <li><strong>Colazione:</strong> Colazione Fissa Economica.</li>
+          <li><strong>Pasto Libero Controllato:</strong> 1 pasto a piacere (es. pizza di qualità o primo piatto).</li>
+          <li><strong>Altro Pasto Principale:</strong> Proteina magra + verdure a foglia verde + 10g Olio EVO.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PALESTRA -->
+    <div id="section-palestra" style="display:none;">
+      <div class="accordion">
+        <div class="accordion-header" data-target="lunedi">
+          <span>Lunedì — Sessione A (Spinta & Quadricipiti)</span>
+          <span class="icon">▼</span>
+        </div>
+        <div class="accordion-body" id="lunedi">
+          <div class="exercise-note">Testa appoggiata, spalle basse.</div>
+
+          <div class="exercise">
+            <div class="exercise-name">Chest Press Panatta — 4×10-12 (rec. 90s)</div>
+            <div class="slots">
+              <div class="slot"><label>Sett 1 (kg)</label><input type="number"></div>
+              <div class="slot"><label>Sett 2 (kg)</label><input type="number"></div>
+              <div class="slot"><label>Sett 3 (kg)</label><input type="number"></div>
+              <div class="slot"><label>Sett 4 (kg)</label><input type="number"></div>
+            </div>
+          </div>
+
+          <div class="exercise">
+            <div class="exercise-name">Shoulder Press Panatta — 3×12 (rec. 75s)</div>
+            <div class="slots">
+              <div class="slot"><label>Sett 1 (kg)</label><input type="number"></div>
+             
+<!-- REGISTRO -->
+<div id="section-registro" style="display:none;">
+  <div class="card">
+    <h2>📊 Registro Anatomico Mensile</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Parametro</th>
+            <th>Baseline</th>
+            <th>Target M3</th>
+            <th>M1</th>
+            <th>M2</th>
+            <th>M3</th>
+            <th>M4</th>
+            <th>M5</th>
+            <th>M6</th>
+            <th>M7</th>
+            <th>M8</th>
+            <th>M9</th>
+            <th>M10</th>
+            <th>M11</th>
+            <th>M12</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Peso (kg)</strong></td>
+            <td>84.0</td>
+            <td>80.0</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Larghezza Deltoidi</strong></td>
+            <td>42 cm</td>
+            <td>44 cm</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Torace (capezzoli)</strong></td>
+            <td>101 cm</td>
+            <td>103 cm</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Vita Stretta</strong></td>
+            <td>94 cm</td>
+            <td>89 cm</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Addome (ombelico)</strong></td>
+            <td>106 cm</td>
+            <td>98 cm</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Circonferenza Glutei</strong></td>
+            <td>97 cm</td>
+            <td>100 cm</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Bicipite (Dx/Sx)</strong></td>
+            <td>31 / 31 cm</td>
+            <td>32.5 cm</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><strong>Coscia (Dx/Sx)</strong></td>
+            <td>45 / 45 cm</td>
+            <td>47 cm</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- PROGRESSI MENSILI PRO -->
+<div id="section-progressi" style="display:none;">
+  <div class="card">
+    <h2>📈 Progressi Mensili PRO (12 Mesi)</h2>
+    <p style="font-size:0.85rem;">Ogni mese: misure, barra progresso, note, 3 foto con anteprima.</p>
+  </div>
+
+  <!-- TEMPLATE MESE -->
+  <!-- Ogni mese è identico, cambia solo il numero (m1, m2, m3...) -->
+
+  <!-- Mese 1 -->
+  <div class="accordion">
+    <div class="accordion-header" data-target="mese1">
+      <span>Mese 1</span>
+      <span class="icon">▼</span>
+    </div>
+    <div class="accordion-body" id="mese1">
+      <div class="month-block">
+        <h3>Mese 1 — Misure & Foto</h3>
+        <div class="progress-bar"><div class="progress-fill" id="pb-m1"></div></div>
+
+        <div class="month-inputs">
+          <div class="month-input"><label>Peso (kg)</label><input id="m1-peso" type="number"></div>
+          <div class="month-input"><label>Deltoidi (cm)</label><input id="m1-deltoidi" type="number"></div>
+          <div class="month-input"><label>Torace (cm)</label><input id="m1-torace" type="number"></div>
+          <div class="month-input"><label>Vita (cm)</label><input id="m1-vita" type="number"></div>
+          <div class="month-input"><label>Addome (cm)</label><input id="m1-addome" type="number"></div>
+          <div class="month-input"><label>Glutei (cm)</label><input id="m1-glutei" type="number"></div>
+          <div class="month-input"><label>Bicipite (cm)</label><input id="m1-bicipite" type="number"></div>
+          <div class="month-input"><label>Coscia (cm)</label><input id="m1-coscia" type="number"></div>
+        </div>
+
+        <div class="notes-area">
+          <label>Note Mese 1</label>
+          <textarea id="m1-note"></textarea>
+        </div>
+
+        <div class="photos-row">
+          <div class="photo-slot">
+            <label>Foto 1</label>
+            <input type="file" accept="image/*" data-preview="m1-foto1-preview">
+            <img id="m1-foto1-preview" class="photo-preview" alt="">
+          </div>
+          <div class="photo-slot">
+            <label>Foto 2</label>
+            <input type="file" accept="image/*" data-preview="m1-foto2-preview">
+            <img id="m1-foto2-preview" class="photo-preview" alt="">
+          </div>
+          <div class="photo-slot">
+            <label>Foto 3</label>
+            <input type="file" accept="image/*" data-preview="m1-foto3-preview">
+            <img id="m1-foto3-preview" class="photo-preview" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mese 2 -->
+  <div class="accordion">
+    <div class="accordion-header" data-target="mese2">
+      <span>Mese 2</span>
+      <span class="icon">▼</span>
+    </div>
+    <div class="accordion-body" id="mese2">
+      <div class="month-block">
+        <h3>Mese 2 — Misure & Foto</h3>
+        <div class="progress-bar"><div class="progress-fill" id="pb-m2"></div></div>
+
+        <div class="month-inputs">
+          <div class="month-input"><label>Peso (kg)</label><input id="m2-peso" type="number"></div>
+          <div class="month-input"><label>Deltoidi (cm)</label><input id="m2-deltoidi" type="number"></div>
+          <div class="month-input"><label>Torace (cm)</label><input id="m2-torace" type="number"></div>
+          <div class="month-input"><label>Vita (cm)</label><input id="m2-vita" type="number"></div>
+          <div class="month-input"><label>Addome (cm)</label><input id="m2-addome" type="number"></div>
+          <div class="month-input"><label>Glutei (cm)</label><input id="m2-glutei" type="number"></div>
+          <div class="month-input"><label>Bicipite (cm)</label><input id="m2-bicipite" type="number"></div>
+          <div class="month-input"><label>Coscia (cm)</label><input id="m2-coscia" type="number"></div>
+        </div>
+
+        <div class="notes-area">
+          <label>Note Mese 2</label>
+          <textarea id="m2-note"></textarea>
+        </div>
+
+        <div class="photos-row">
+          <div class="photo-slot">
+            <label>Foto 1</label>
+            <input type="file" accept="image/*" data-preview="m2-foto1-preview">
+            <img id="m2-foto1-preview" class="photo-preview" alt="">
+          </div>
+          <div class="photo-slot">
+            <label>Foto 2</label>
+            <input type="file" accept="image/*" data-preview="m2-foto2-preview">
+            <img id="m2-foto2-preview" class="photo-preview" alt="">
+          </div>
+          <div class="photo-slot">
+            <label>Foto 3</label>
+            <input type="file" accept="image/*" data-preview="m2-foto3-preview">
+            <img id="m2-foto3-preview" class="photo-preview" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mese 3 -->
+  <div class="accordion">
+    <div class="accordion-header" data-target="mese3">
+      <span>Mese 3</span>
+      <span class="icon">▼</span>
+    </div>
+    <div class="accordion-body" id="mese3">
+      <div class="month-block">
+        <h3>Mese 3 — Misure & Foto</h3>
+        <div class="progress-bar"><div class="progress-fill" id="pb-m3"></div></div>
+
+        <div class="month-inputs">
+          <div class="month-input"><label>Peso (kg)</label><input id="m3-peso" type="number"></div>
+          <div class="month-input"><label>Deltoidi (cm)</label><input id="m3-deltoidi" type="number"></div>
+          <div class="month-input"><label>Torace (cm)</label><input id="m3-torace" type="number"></div>
+          <div class="month-input"><label>Vita (cm)</label><input id="m3-vita" type="number"></div>
+          <div class="month-input"><label>Addome (cm)</label><input id="m3-addome" type="number"></div>
+          <div class="month-input"><label>Glutei (cm)</label><input id="m3-glutei" type="number"></div>
+          <div class="month-input"><label>Bicipite (cm)</label><input id="m3-bicipite" type="number"></div>
+          <div class="month-input"><label>Coscia (cm)</label><input id="m3-coscia" type="number"></div>
+        </div>
+
+        <div class="notes-area">
+          <label>Note Mese 3</label>
+          <textarea id="m3-note"></textarea>
+        </div>
+
+        <div class="photos-row">
+          <div class="photo-slot">
+            <label>Foto 1</label>
+            <input type="file" accept="image/*" data-preview="m3-foto1-preview">
+            <img id="m3-foto1-preview" class="photo-preview" alt="">
+          </div>
+          <div class="photo-slot">
+            <label>Foto 2</label>
+            <input type="file" accept="image/*" data-preview="m3-foto2-preview">
+            <img id="m3-foto2-preview" class="photo-preview" alt="">
+          </div>
+          <div class="photo-slot">
+            <label>Foto 3</label>
+            <input type="file" accept="image/*" data-preview="m3-foto3-preview">
+            <img id="m3-foto3-preview" class="photo-preview" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mesi 4–12 identici -->
+  <!-- Per non superare il limite della piattaforma, ti mando i mesi 4–12 in un secondo blocco -->
+</div>
+
+<!-- SCRIPT FINALE -->
+<script>
+  // NAV
+  const navButtons = document.querySelectorAll('.nav button');
+  const sections = {
+    dieta: document.getElementById('section-dieta'),
+    palestra: document.getElementById('section-palestra'),
+    registro: document.getElementById('section-registro'),
+    progressi: document.getElementById('section-progressi')
+  };
+
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-section');
+      navButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      Object.keys(sections).forEach(key => {
+        sections[key].style.display = key === target ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Accordion
+  document.querySelectorAll('.accordion-header').forEach(h => {
+    h.addEventListener('click', () => {
+      const target = document.getElementById(h.dataset.target);
+      const icon = h.querySelector('.icon');
+      const open = target.style.display === 'block';
+      target.style.display = open ? 'none' : 'block';
+      icon.textContent = open ? '▼' : '▲';
+    });
+  });
+
+  // Progress bar per mese
+  function setupMonthProgress(monthNumber) {
+    const ids = [
+      `m${monthNumber}-peso`,
+      `m${monthNumber}-deltoidi`,
+      `m${monthNumber}-torace`,
+      `m${monthNumber}-vita`,
+      `m${monthNumber}-addome`,
+      `m${monthNumber}-glutei`,
+      `m${monthNumber}-bicipite`,
+      `m${monthNumber}-coscia`,
+      `m${monthNumber}-note`
+    ];
+    const bar = document.getElementById(`pb-m${monthNumber}`);
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', () => {
+        let filled = ids.filter(i => {
+          const e = document.getElementById(i);
+          return e && e.value !== "";
+        }).length;
+        let percent = Math.round((filled / ids.length) * 100);
+        if (bar) bar.style.width = percent + "%";
+      });
+    });
+  }
+
+  for (let m = 1; m <= 12; m++) {
+    setupMonthProgress(m);
+  }
+
+  // Foto preview
+  document.querySelectorAll('input[type="file"][data-preview]').forEach(input => {
+    input.addEventListener('change', () => {
+      const previewId = input.getAttribute('data-preview');
+      const img = document.getElementById(previewId);
+      const file = input.files && input.files[0];
+      if (!img) return;
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        img.src = "";
+      }
+    });
+  });
+</script>
